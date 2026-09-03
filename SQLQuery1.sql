@@ -39,3 +39,12 @@ CREATE TABLE Weather (
     Conditions VARCHAR(100),
     WindSpeed DECIMAL(5,2),
     RainProbability INT,
+);
+    CREATE TABLE Category (
+    CategoryID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    CategoryName VARCHAR(100) NOT NULL,
+    Distance VARCHAR(50),
+
+    FOREIGN KEY (EventID) REFERENCES Event(EventID)
+);
