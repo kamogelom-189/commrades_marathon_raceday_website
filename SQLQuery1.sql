@@ -48,3 +48,11 @@ CREATE TABLE Weather (
 
     FOREIGN KEY (EventID) REFERENCES Event(EventID)
 );
+CREATE TABLE Entry (
+    EntryID INT IDENTITY(1,1) PRIMARY KEY,
+    ParticipantID INT NOT NULL,
+    EventID INT NOT NULL,
+    CategoryID INT NOT NULL,
+    EntryDate DATE NOT NULL,
+    Status VARCHAR(30) NOT NULL,
+);
