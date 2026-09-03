@@ -82,3 +82,12 @@ CREATE TABLE Result (
     FOREIGN KEY (ParticipantID) REFERENCES Participant(ParticipantID),
     FOREIGN KEY (EventID) REFERENCES Event(EventID)
 );
+CREATE TABLE Checkpoint (
+    CheckpointID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    Name VARCHAR(100) NOT NULL,
+    Location VARCHAR(150),
+    CutoffTime TIME,
+
+    FOREIGN KEY (EventID) REFERENCES Event(EventID)
+);
