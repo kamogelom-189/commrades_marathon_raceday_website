@@ -55,4 +55,7 @@ CREATE TABLE Entry (
     CategoryID INT NOT NULL,
     EntryDate DATE NOT NULL,
     Status VARCHAR(30) NOT NULL,
+FOREIGN KEY (ParticipantID) REFERENCES Participant(ParticipantID),
+    FOREIGN KEY (EventID) REFERENCES Event(EventID),
+    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
 );
