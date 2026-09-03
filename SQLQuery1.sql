@@ -70,3 +70,15 @@ CREATE TABLE Route (
 
     FOREIGN KEY (EventID) REFERENCES Event(EventID)
 );
+CREATE TABLE Result (
+    ResultID INT IDENTITY(1,1) PRIMARY KEY,
+    ParticipantID INT NOT NULL,
+    EventID INT NOT NULL,
+    RaceNumber VARCHAR(20),
+    FinishTime TIME,
+    Position INT,
+    Status VARCHAR(30),
+
+    FOREIGN KEY (ParticipantID) REFERENCES Participant(ParticipantID),
+    FOREIGN KEY (EventID) REFERENCES Event(EventID)
+);
