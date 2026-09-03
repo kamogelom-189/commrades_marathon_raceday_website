@@ -91,3 +91,13 @@ CREATE TABLE Checkpoint (
 
     FOREIGN KEY (EventID) REFERENCES Event(EventID)
 );
+CREATE TABLE MedicalIncident (
+    IncidentID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    ParticipantID INT NOT NULL,
+    IncidentType VARCHAR(100),
+    Status VARCHAR(50),
+
+    FOREIGN KEY (EventID) REFERENCES Event(EventID),
+    FOREIGN KEY (ParticipantID) REFERENCES Participant(ParticipantID)
+)
