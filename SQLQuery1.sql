@@ -100,4 +100,15 @@ CREATE TABLE MedicalIncident (
 
     FOREIGN KEY (EventID) REFERENCES Event(EventID),
     FOREIGN KEY (ParticipantID) REFERENCES Participant(ParticipantID)
-)
+);
+CREATE TABLE RaceTime (
+    TimeID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    ParticipantID INT NOT NULL,
+    StartTime DATETIME,
+    FinishTime DATETIME,
+    Status VARCHAR(30),
+
+    FOREIGN KEY (EventID) REFERENCES Event(EventID),
+    FOREIGN KEY (ParticipantID) REFERENCES Participant(ParticipantID)
+);
