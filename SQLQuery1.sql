@@ -59,3 +59,14 @@ FOREIGN KEY (ParticipantID) REFERENCES Participant(ParticipantID),
     FOREIGN KEY (EventID) REFERENCES Event(EventID),
     FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
 );
+CREATE TABLE Route (
+    RouteID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    RouteName VARCHAR(150),
+    Distance DECIMAL(6,2),
+    StartPoint VARCHAR(150),
+    FinishPoint VARCHAR(150),
+    MapURL VARCHAR(500),
+
+    FOREIGN KEY (EventID) REFERENCES Event(EventID)
+);
