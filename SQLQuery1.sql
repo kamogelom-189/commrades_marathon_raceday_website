@@ -5,3 +5,8 @@ CREATE TABLE [User] (
     Password VARCHAR(255) NOT NULL,
     Role VARCHAR(20) NOT NULL
 );
+CREATE TABLE Participant (
+    ParticipantID INT IDENTITY(1,1) PRIMARY KEY,
+    UserID INT NOT NULL,
+    IDNumber VARCHAR(20),
+    Phone VARCHAR(20),
