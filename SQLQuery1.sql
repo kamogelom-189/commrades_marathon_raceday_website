@@ -10,3 +10,6 @@ CREATE TABLE Participant (
     UserID INT NOT NULL,
     IDNumber VARCHAR(20),
     Phone VARCHAR(20),
+FOREIGN KEY (USERID) REFERENCES[USER]
+    (USERID)
+    );
