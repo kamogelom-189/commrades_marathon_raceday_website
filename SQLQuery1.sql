@@ -31,3 +31,11 @@ CREATE TABLE EVENT (
     FOREIGN KEY (ORGANISERID) REFERENCES
     ORGANISER(ORGANISERID)
     );
+CREATE TABLE Weather (
+    WeatherID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    RecordedAt DATETIME NOT NULL,
+    Temperature DECIMAL(5,2),
+    Conditions VARCHAR(100),
+    WindSpeed DECIMAL(5,2),
+    RainProbability INT,
