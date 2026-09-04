@@ -21,7 +21,7 @@ jobs:
 
       - name: Check Required Files
         run: |
-          test -f "docs/ERD.png" || exit 1
+          test -f "docs/ERD.pdf" || exit 1
           test -f "docs/api-plan.md" || exit 1
           test -f "docs/schema.sql" || exit 1
           test -f "README.md" || exit 1
