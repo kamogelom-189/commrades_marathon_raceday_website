@@ -1,0 +1,38 @@
+name: RaceDay Part 1 CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  validate-planning:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check Docs Folder
+        run: |
+          test -d "docs" || (echo "ERROR: docs folder is missing" && exit 1)
+
+      - name: Check Required Files
+        run: |
+          test -f "docs/ERD.png" || (echo "ERROR: docs/ERD.png is missing" && exit 1)
+          test -f "docs/api-plan.pdf" || (echo "ERROR: docs/api-plan.pdf is missing" && exit 1)
+          test -f "docs/schema.sql" || (echo "ERROR: docs/schema.sql is missing" && exit 1)
+          test -f "README.md" || (echo "ERROR: README.md is missing" && exit 1)
+
+      - name: Check ERD Is a Real Image
+        run: |
+          file docs/ERD.png | grep -qi "PNG image data" || (echo "ERROR: docs/ERD.png is not a valid PNG file" && exit 1)
+
+      - name: Check SQL Contains Tables
+        run: |
+          grep -qi "CREATE TABLE" docs/schema.sql || (echo "ERROR: docs/schema.sql has no CREATE TABLE statements" && exit 1)
+
+      - name: Validation Complete
+        run: echo "RaceDay Part 1 validation passed successfully."
